@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Component} from 'react';
+import logo from './LCO-logo-white.png';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App  extends Component {
+  render() {
+    return(
+      <div>
+        <img src={logo} style={{background: "red"}} className="logo" alt="" />
+        <h1 className="app-title">TODO App</h1>
+        <div className="container">
+          Add an item....
+          <br />
+          <input type="text"
+          className="input-text"
+          placeholder="write a Todo"
+          />
+          <button
+          className="add-btn">Add Todo</button>
+        </div>
+        <div className="list">
+          <ul>
+            <li>
+              <input type="checkbox"
+              name="" id="" />
+              Record youtube videos
+              <button className="btn">Delete</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
