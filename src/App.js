@@ -13,6 +13,7 @@ class App  extends Component {
     }
   }
   addItem(todoValue){
+    console.log("Add item function called:");
     if (todoValue !== ""){
       const newItem = {
         id: Date.now(),
@@ -21,7 +22,6 @@ class App  extends Component {
       };
       const list = [...this.state.list];
       list.push(newItem);
-
       this.setState({
         list,
         newItem: ""
@@ -29,17 +29,18 @@ class App  extends Component {
     }
   }
 
-deleteItem(id){
-  const list = [...this.state.list];
-  const updatedList = list.filter(item => item.id !== id);
-  this.setState({
-    list: updatedList
-  });
-}
+  deleteItem(id){
+    const list = [...this.state.list];
+    const updatedList = list.filter(item => item.id !== id);
+    console.log("list after deletion:", updatedList);
+    this.setState({
+      list: updatedList
+    });
+  }
 
-updateInput(input){
-  this.setState({newItem:input})
-}
+  updateInput(input){
+    this.setState({newItem:input})
+  }
 
   render() {
     return(
@@ -76,7 +77,7 @@ updateInput(input){
                   {item.value}
                   <button
                   className="btn"
-                  onclick={()=>this.deleteItem(item.id)}
+                  onClick={()=>this.deleteItem(item.id)}
                   >Delete</button>
                 </li>
               );
